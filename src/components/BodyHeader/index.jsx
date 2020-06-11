@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
   },
   subText: {
     flexGrow: 1,
-    [theme.breakpoints.down('xs')]: {
-      display: "block"
+    [theme.breakpoints.down("xs")]: {
+      display: "block",
     },
   },
 }));
@@ -40,6 +40,8 @@ export default function BodyHeader() {
         <Grid container justify="center">
           <Avatar
             src={profileImg}
+            width={96}
+            height={96}
             alt="Arjun Kesava"
             className={classes.large}
             align="center"
@@ -61,7 +63,7 @@ export default function BodyHeader() {
           variant="subtitle1"
           align="center"
           color="textSecondary"
-          component={'span'}
+          component={"span"}
         >
           <Grid
             container
@@ -70,10 +72,13 @@ export default function BodyHeader() {
             className={classes.subText}
           >
             <Grid item>
-            &nbsp;&nbsp;Software Engineer @ Cisco Systems | Working on WebEx | {'  '}
+              &nbsp;&nbsp;Software Engineer @ Cisco Systems | Working on WebEx |{" "}
+              {"  "}
             </Grid>
             <Grid item>
-              &nbsp;<FavoriteIcon className={classes.heart} fontSize="small" />&nbsp;
+              &nbsp;
+              <FavoriteIcon className={classes.heart} fontSize="small" />
+              &nbsp;
             </Grid>
             <Grid item>JS</Grid>
           </Grid>
