@@ -2,6 +2,8 @@ import express from "express";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import App from "../src/App";
+import { ServerStyleSheets } from "@material-ui/core/styles";
+import purify from "purify-css";
 
 const PORT = 3000;
 const path = require("path");
@@ -12,7 +14,7 @@ const app = express();
 const router = express.Router();
 
 // root (/) should always serve our server rendered page
-router.use("*", (req, res, next) => {
+router.use("/", (_, res) => {
   // point to the html file created by CRA's build tool
   const filePath = path.resolve(__dirname, "..", "build", "index.html");
 
@@ -22,13 +24,29 @@ router.use("*", (req, res, next) => {
       return res.status(404).end();
     }
 
-    // render the app as a string
-    const html = ReactDOMServer.renderToString(<App />);
+    // Grab the CSS from the sheets.
+    const sheets = new ServerStyleSheets();
 
-    // inject the rendered app into our html and send it
-    return res.send(
-      htmlData.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+    // render the app as a string
+    const html = ReactDOMServer.renderToString(sheets.collect(<App />));
+    const css = sheets.toString();
+
+    // Removes unused CSS
+    const purifiedCSS = purify(html, css);
+
+    const mapHtmlString = {
+      html: `<div id="root">${html}</div>`,
+      css: `<style id="jss-ssr">${purifiedCSS}</style>`,
+    };
+
+    // inject the rendered app into our html, css and send it
+    htmlData = htmlData.replace(
+      `<style id="jss-ssr"></style>`,
+      mapHtmlString.css
     );
+    htmlData = htmlData.replace(`<div id="root"></div>`, mapHtmlString.html);
+
+    return res.send(htmlData);
   });
 });
 
@@ -41,6 +59,6 @@ router.use(
 app.use(router);
 
 // start the app
-app.listen(PORT, (error) => {
-  console.log("you have an errir", error);
+app.listen(PORT, () => {
+  console.log("You are good to go");
 });
