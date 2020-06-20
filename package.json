@@ -12,7 +12,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "ssr": "NODE_ENV=development node server/bootstrap.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,5 +29,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/register": "^7.10.3",
+    "ignore-styles": "^5.0.1",
+    "regenerator-runtime": "^0.13.5"
   }
 }

@@ -5,7 +5,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import React from "react";
-import profileImg from "../../images/profile.jpg";
+// import profileImg from "../../images/profile.jpg";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -39,7 +39,6 @@ export default function BodyHeader() {
       <Container maxWidth="sm">
         <Grid container justify="center">
           <Avatar
-            src={profileImg}
             width={96}
             height={96}
             alt="Arjun Kesava"

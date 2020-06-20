@@ -11,7 +11,7 @@ const generateClassName = createGenerateClassName({
   productionPrefix: "c",
 });
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <StylesProvider generateClassName={generateClassName}>
     <App />
   </StylesProvider>,
