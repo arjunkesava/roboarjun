@@ -9,8 +9,8 @@ import Grid from "@material-ui/core/Grid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-// import beHonestHomeImg from "../../images/behonesthome.png";
-// import personalSiteImage from "../../images/personalsite.png";
+import beHonestHomeImg from "../../images/behonesthome.webp";
+import personalSiteImage from "../../images/personalsite.webp";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -58,6 +58,7 @@ export default function BodyGrid() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
+              image={personalSiteImage}
               title="roboarjun home page"
             />
             <CardContent className={classes.cardContent}>
@@ -86,6 +87,7 @@ export default function BodyGrid() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
+              image={beHonestHomeImg}
               title="Be Honest Home Page"
             />
             <CardContent className={classes.cardContent}>
