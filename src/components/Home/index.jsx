@@ -1,12 +1,14 @@
 import React from "react";
-import BodyGrid from "../BodyGrid";
+import ReposGrid from "../ReposGrid";
+import AboutMe from "../AboutMe";
 import BodyHeader from "../BodyHeader";
 
 export default function Home() {
   return (
     <main>
       <BodyHeader />
-      <BodyGrid />
+      <AboutMe />
+      <ReposGrid />
     </main>
   );
 }

@@ -14,7 +14,7 @@ import personalSiteImage from "../../images/personalsite.webp";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
-    paddingTop: theme.spacing(8),
+    paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(8),
   },
   card: {
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BodyGrid() {
+export default function ReposGrid() {
   const classes = useStyles();
 
   return (
